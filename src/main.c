@@ -322,8 +322,6 @@ int main(void) {
     return 0;
   }
 
-  // timer_init();
-
   for (;;) {
     dk_set_led(RUN_STATUS_LED, (++blink_status) % 2);
     k_sleep(K_MSEC(RUN_LED_BLINK_INTERVAL));
@@ -333,8 +331,6 @@ int main(void) {
 
 void test_run_cmd(void) {
   printk("BLE off\n");
-  // enter_idle_mode();
-  // nrf_power_system_off();
   // NRF_POWER->SYSTEMOFF = 1;//выключение полностью
   // k_sleep(K_SECONDS(SLEEP_TIME));
   // bt_disable();
