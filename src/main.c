@@ -277,47 +277,6 @@ static struct dm_cb dm_cb = {
     .data_ready = data_ready,
 };
 
-// void TIMER2_IRQHandler(void)
-// {
-//     if (NRF_TIMER2->EVENTS_COMPARE[0]) {
-//         NRF_TIMER2->EVENTS_COMPARE[0] = 0;  // Сбросить событие
-// 		printk("Timer 2 interrupt\n");
-// 		NRF_POWER->SYSTEMOFF = 0;
-//         // Здесь можно добавить код для выполнения действий по прерыванию
-//     }
-// }
-
-// void timer_init(void)
-// {
-//     // Остановить таймер перед настройкой
-//     NRF_TIMER1->TASKS_STOP = 1;
-//     NRF_TIMER1->TASKS_CLEAR = 1;  // Очистить таймер
-
-//     // // Установим прескалер для таймера (например, делитель частоты 1 МГц)
-//     NRF_TIMER1->PRESCALER = 9;  // Прескалер 9 для частоты 1 МГц
-
-//     // // Установим значение для сравнения (например, через 1000 тактов)
-//     NRF_TIMER1->CC[0] = 1000;
-
-//     // // Включим прерывание при сравнении
-//     NRF_TIMER1->INTENSET = TIMER_INTENSET_COMPARE0_Enabled <<
-//     TIMER_INTENSET_COMPARE0_Pos;
-
-//     // // Разрешаем прерывание в NVIC
-//     NVIC_EnableIRQ(10);
-
-//     // // Запустим таймер
-//     NRF_TIMER1->TASKS_START = 1;
-// }
-
-// void enter_idle_mode(void)
-// {
-//     // Процессор переходит в режим ожидания прерывания (Idle)
-// 	//NRF_POWER->TASKS_LOWPWR = 0;
-// 	printk("Enter idle mode\n");
-//     __WFI();  // Wait For Interrupt (ожидание прерывания)
-// }
-
 int main(void) {
   int err;
   uint32_t blink_status = 0;
